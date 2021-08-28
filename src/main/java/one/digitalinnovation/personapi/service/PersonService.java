@@ -1,5 +1,6 @@
 package one.digitalinnovation.personapi.service;
 
+import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnovation.personapi.entity.Person;
 import one.digitalinnovation.personapi.repository.PersonRepository;
@@ -18,8 +19,9 @@ public class PersonService {
     }
 
     @PostMapping
-    public MessageResponseDTO createPerson(Person person) {
-        Person personSaved = personRepository.save(person);
+    public MessageResponseDTO createPerson(PersonDTO personDTO) {
+        //Person personToSave = Person.builder().build().
+        Person personSaved = personRepository.save(personDTO);
         return MessageResponseDTO
                 .builder()
                 .message("Pessoa criada com id:"+personSaved.getId())
