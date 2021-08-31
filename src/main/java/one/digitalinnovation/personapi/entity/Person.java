@@ -38,7 +38,6 @@ public class Person {
 	@Column(nullable = false, unique = true)
 	private String cpf;
 
-	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate birthDate;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE })
